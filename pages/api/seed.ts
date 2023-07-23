@@ -15,31 +15,42 @@ async function main() {
         name: "miri",
         description: "miri@prisma.io",
       },
-    ]
+    ],
   });
 
-  // const category = await prisma.category.create({
-  //   data: {
-  //     vegetable: "Meyveler",
-  //     cars: ["bmw", "mercedes", "nissan", "tayota"],
-  //   },
-  // });
-  
-  const salam = await prisma.product.findFirst({
-    where: {
-      name: { startsWith: "miri", }
-    }
-  })
-  console.log(salam);
+  const category = await prisma.category.create({
+    data: {
+      vegetable: "Meyveler",
+      cars: ["bmw", "mercedes", "nissan", "tayota"],
+    },
+  });
+
+  const cars = await prisma.cars.create({
+    data: {
+      type: "bmw",
+      number: "10 aa 100",
+    },
+  });
+
+  const person = await prisma.person.create({
+    data: {
+      name: "Miri",
+      age: 22,
+      surname: "Aliyev",
+    },
+  });
 }
 
-main()
-  // .then(() => prisma.$disconnect())
-  // .catch(async (e) => {
-  //   console.error(e);
-  //   await prisma.$disconnect();
-  //   process.exit(1);
-  // });
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  res.status(200).json({ name: 'Miri' })
+main();
+// .then(() => prisma.$disconnect())
+// .catch(async (e) => {
+//   console.error(e);
+//   await prisma.$disconnect();
+//   process.exit(1);
+// });
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  res.status(200).json({ name: "Coders" });
 }
