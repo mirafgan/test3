@@ -12,12 +12,6 @@ function Find() {
     setGetInputValue(e.target.value);
   };
 
-  const postFunc = async () => {
-    const post = await getDailyData(getInputValue);
-
-    return post;
-  };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let coming = await getDailyData(getInputValue);
@@ -74,7 +68,7 @@ function Find() {
         <div>{showData?.city?.name}</div> ---
         <div>
           {showData?.list?.map((item, index) => {
-            return <div key={index}>{item.main.feels_like} °C</div>;
+            return <div key={index}>{item.main.feels_like} °K</div>;
           })}
         </div>
       </div>

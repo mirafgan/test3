@@ -8,6 +8,9 @@ const Contact = async () => {
   let cate = await prisma.category.findMany();
   console.log(cate);
 
+  let person = await prisma.person.findMany();
+  console.log(person);
+
   return (
     <div>
       <div>
@@ -22,6 +25,10 @@ const Contact = async () => {
 
         {cate?.map((item) => {
           return <p>{item.vegetable}</p>;
+        })}
+
+        {person?.map((item) => {
+          return <div>{item.name}</div>;
         })}
       </div>
     </div>
