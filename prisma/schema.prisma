@@ -5,7 +5,6 @@ generator client {
 datasource db {
   provider  = "postgresql"  
   url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
 }
 
 model Product {
@@ -16,7 +15,7 @@ model Product {
 
 model Category {
   id        Int      @id @default(autoincrement())
-  vegetable String   @unique
+  vegetable String  
   cars      String[]
 }
 
